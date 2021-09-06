@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelpDesk</title>
+    <link rel="stylesheet" href=".\assets\stylesheets\style.css">
+    <script src="scripts/config.js"></script>
+    <script src="scripts/loginUser.js"></script>
+    <script>
+        window.fbAsyncInit = function () {
+          FB.init({
+            appId: CONFIG.APPID,
+            cookie: true,
+            xfbml: true,
+            version: CONFIG.VERSION,
+          });
+  
+          FB.AppEvents.logPageView();
+        };
+  
+        (function (d, s, id) {
+          var js,
+            fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) {
+            return;
+          }
+          js = d.createElement(s);
+          js.id = id;
+          js.src = "https://connect.facebook.net/en_US/sdk.js";
+          fjs.parentNode.insertBefore(js, fjs);
+        })(document, "script", "facebook-jssdk");
+      </script>
+</head>
+<body>
+      <div class="row">
+        <h1 class = "heading">Facebook HelpDesk</h1>
+        <h2 class = "heading">Click below to continue</h2>
+        <div class = "btn">
+        <fb:login-button scope="public_profile,email" onlogin="doLogin();">
+      </fb:login-button>
+      <h3 id="result"></h3>
+    </div>
+</body>
+</html>
